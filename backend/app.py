@@ -24,17 +24,7 @@ def create_app():
 
     db.init_app(app)
 
-    CORS(
-        app,
-        resources={
-        r"/api/*": {
-            "origins": [
-                "http://localhost:5173",
-                "https://team-task-manager-38g28nsya-vineet639s-projects.vercel.app"
-            ]
-        }
-    }
-    )
+    CORS(app)
 
     JWTManager(app)
 
