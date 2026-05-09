@@ -26,8 +26,14 @@ def create_app():
 
     CORS(
         app,
-        origins=["http://localhost:5173"],
-        supports_credentials=True
+        resources={
+        r"/api/*": {
+            "origins": [
+                "http://localhost:5173",
+                "https://team-task-manager-38g28nsya-vineet639s-projects.vercel.app"
+            ]
+        }
+    }
     )
 
     JWTManager(app)
